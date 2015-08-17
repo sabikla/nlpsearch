@@ -1,0 +1,9 @@
+@(applicantsList : List[Map[String,Any]])
+<ul class="list-group">
+	@for(applicant <- applicantsList){
+	<li class="list-group-item">@applicant.get("candidate.name")
+
+		<a href="@routes.CompanyArea.candidateViewInDetail(GeneralFunctions.getMD5Hash(GeneralFunctions.someExtractor(applicant.get("jobapplication.userid").get)))" class="btn btn-xs btn-success pull-right"><span class="glyphicon glyphicon-plus"></span></a>
+	</li>
+	}
+</ul>

@@ -1,0 +1,70 @@
+@(header : Html)
+  @header
+    <div class="col col-sm-12">
+      <br>
+    @helper.form(action=routes.Application.doCandidateRegistration ,'enctype -> "multipart/form-data"){
+      <div class="col col-sm-8 col-sm-offset-2">
+        <h3>Candidate Registration</h3>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Name : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="name" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Email : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="email" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+         <div class="form-group">
+          <label class="control-label col-sm-3">Contact no : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="contact_no" type="number" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Password : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="password" name="password" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Confirm Password : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="password" name="confirm_password" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Location : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="location" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Experience : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="experience" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Resume : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="file" name="resume" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <input type="submit" value="Register" class="btn btn-success pull-right ">
+      </div>
+      }
+     </div>
+    </div>
+  </body>
+</html>

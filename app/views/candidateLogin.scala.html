@@ -1,0 +1,21 @@
+@(header : Html)
+@header
+      <div class="col col-sm-4 col-sm-offset-4">
+      <form class="email-login" action="@routes.Login.doLogin" method="POST">
+        <center>
+          <div class="input-group input-group-lg"><input class="form-control" type="text" name="username" placeholder="Username" style="margin-bottom:4"/>
+          </div>
+          <div class="input-group input-group-lg"><input class="form-control" type="password" name="password" placeholder="Password"/>
+          </div>
+          <div class="u-form-group">
+            <button class="btn btn-success" style="margin-top:20">Log in</button>
+          </div>
+        </center>
+      </form>
+      <br>
+      <b>If you don't have an account ? </b><a href="@routes.Application.candidateRegistration"><img src="@routes.Assets.versioned("images/signupnow.png")" class="pull-right"></a>
+
+    </div>	<div class="col col-sm-4"> </div></div>
+    </div>
+  </body>
+</html>

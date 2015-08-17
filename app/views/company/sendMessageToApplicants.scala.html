@@ -1,0 +1,33 @@
+@(header : Html, jobList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <div class="col col-sm-8 col-sm-offset-2">
+        @helper.form(action=routes.CompanyArea.doSendMessageToApplicants){
+
+        <div class="form-group">
+          <label class="control-label col-sm-3">Select Job : </label>
+          <span class="col-sm-9">
+            <select class="form-control" name="job" required/>
+              <option value="">Select A job</option>
+            @for(job <- jobList){
+              <option value="@GeneralFunctions.getMD5Hash(job.get("jobtable.jobid").get.toString)">
+                @GeneralFunctions.someExtractor(job.get("jobtable.post").get).capitalize</option>
+            }
+            </select>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>        
+        <div class="form-group">
+          <label class="control-label col-sm-3">Message : </label>
+          <span class="col-sm-9">
+            <textarea class="form-control" name="message"></textarea>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div> 
+        <input type="submit" value="Send" class="btn btn-success pull-right">
+      }
+      </div>
+     </div>
+    </div>
+  </body>
+</html>

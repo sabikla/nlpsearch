@@ -1,0 +1,40 @@
+@(header : Html, jobList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <div class="col col-sm-8 col-sm-offset-2">
+        <div class="form-group">
+          <label class="control-label col-sm-3">Select Job : </label>
+          <span class="col-sm-9">
+            <select class="form-control" name="job"  onchange="readApplicationList(this.value);"/>
+              <option value="">Select A job</option>
+            @for(job <- jobList){
+              <option value="@GeneralFunctions.getMD5Hash(job.get("jobtable.jobid").get.toString)">
+                @GeneralFunctions.someExtractor(job.get("jobtable.post").get).capitalize</option>
+            }
+            </select>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div id="outputHolder" class="col col-sm-12" >
+          <ul class="list-group">
+            <li class="list-group-item">Select A job </li>
+          </ul>
+        </div>
+      </div>
+     </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+  function readApplicationList(hashId){
+    $.ajax({
+      type: 'GET',
+      url: '../companyArea/api/read/applicationList/'+hashId, 
+      success: function(result){
+        document.getElementById("outputHolder").innerHTML= result;
+        console.log(result);
+      }
+    });
+  }
+  </script>
+</html>

@@ -1,0 +1,12 @@
+@(header : Html, jobList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <ul class="list-group">
+        @jobList.map{ application =>
+          <li class="list-group-item"><a href="#" class="btn btn-danger">Cancel Application</a> @GeneralFunctions.someExtractor(application.get("jobtable.post").get).capitalize in @application.get("jobtable.company")</li>
+        }
+      </ul>
+     </div>
+    </div>
+  </body>
+</html>

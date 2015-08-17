@@ -1,0 +1,57 @@
+@(header : Html, jobResult : List[Map[String,Any]], locationMap : Map[Int,String], skillMap : Map[Int,String])
+@header
+
+		<div style="margin:auto; width:1000px;">
+			<br>
+			 <div class="col-lg-8" style="margin:auto;">
+			 	<form action="@routes.Application.searchResult" method="POST">
+				    <div class="input-group">
+				      <input type="text" name="searchQuery" class="form-control" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button class="btn btn-success" type="submit">Go!</button>
+				      </span>
+				    </div><!-- /input-group -->
+			    </form>
+			  </div>
+			  <br><br>
+			  <div class="col col-sm-8">
+			  	@for(job <- jobResult){
+
+			  	<div class="panel panel-default">
+			  		<div class="panel-heading">@job.get("jobtable.post").get</div>
+			  		<div class="panel-body">
+				  		<b><span class="glyphicon glyphicon-tags"></span> &emsp; Company : @job.get("jobtable.company")</b><br>
+				  		<b><span class="glyphicon glyphicon-map-marker"></span> &emsp; Location : @locationMap.get(job.get("jobtable.jobid").get.toString().toInt)</b>
+				  		<p><span class="glyphicon glyphicon-list-alt"></span> &emsp; <b>skills :</b> @skillMap.get(job.get("jobtable.jobid").get.toString().toInt) </p>
+				  		<p><span class="glyphicon glyphicon-usd"></span> &emsp; Salary : @job.get("jobtable.salary")</p>
+				  		<p><b>Description :</b> @job.get("jobtable.description")</p><br>
+				  		<a href="@routes.Application.candidateLogin(GeneralFunctions.getMD5Hash(job.get("jobtable.jobid").get.toString()))" class="btn btn-success pull-right">Apply Now</a>
+			  		</div>
+			  	</div>
+			  }<!-- 
+			  	<div class="panel panel-default">
+			  		<div class="panel-heading">Senior Software Engineer</div>
+			  		<div class="panel-body">
+				  		<b>Company : QBurst Technologies</b><br>
+				  		<b>Location : Cochin, Kerala</b>
+				  		<p><b>skills :</b> Java, Play -framework, Spring </p>
+				  		<p><b>Description :</b> We are looking for talented engineers to be a member of our Software Development and Operation (DevOps) team. You will be involved in building and maintaining solutions that use latest Big Data and Machine Learning technologies. You will be a part of a team of engineers that build self-healing, auto-scaling highly available infrastructures.</p><br>
+				  		<a href="" class="btn btn-success pull-right">Apply Now</a>
+			  		</div>
+			  	</div>
+			  	<div class="panel panel-default">
+			  		<div class="panel-heading">Software engineer</div>
+			  		<div class="panel-body">
+				  		<b>Company : QBurst Technologies</b><br>
+				  		<b>Location : Cochin, Kerala</b>
+				  		<p><b>skills :</b> Android, iPhone </p>
+				  		<p><b>Description :</b> We are looking for talented engineers to be a member of our Software Development and Operation (DevOps) team. You will be involved in building and maintaining solutions that use latest Big Data and Machine Learning technologies. You will be a part of a team of engineers that build self-healing, auto-scaling highly available infrastructures.</p><br>
+				  		<a href="" class="btn btn-success pull-right">Apply Now</a>
+			  		</div>
+			  	</div> -->
+			  </div>
+			  <div class="col col-sm-4"></div>
+			
+		</div>
+	</body>
+</html>

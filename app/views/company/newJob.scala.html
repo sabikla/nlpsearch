@@ -1,0 +1,63 @@
+@(header : Html, companyName : String)
+@header
+     <div class="col col-sm-12">
+      <div class="col col-sm-8 col-sm-offset-2">
+      @helper.form(action = routes.CompanyArea.saveNewJob){
+        <div class="form-group">
+          <label class="control-label col-sm-3">Job : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="job" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Company : </label>
+          <span class="col-sm-9">
+            <select class="form-control" type="text" name="company" placeholder="" required/>
+              <option value="@companyName">@companyName</option>
+            </select>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Description : </label>
+          <span class="col-sm-9">
+            <textarea class="form-control" name="description" placeholder="" required/></textarea>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Experience : </label>
+          <span class="col-sm-9">
+            <input class="form-control" name="experience" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Location : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="location" placeholder="Use Comma to specify multiple locations" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Skills : </label>
+          <span class="col-sm-9">
+            <textarea class="form-control" name="skills" placeholder="Use comma to specify multiple skills" required/></textarea>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3">Salary : </label>
+          <span class="col-sm-9">
+            <input class="form-control" type="text" name="salary" placeholder="" required/>
+          </span>
+          <div class="col col-sm-12 wrapper"></div>
+        </div>
+        <input type="submit" value="Create new job" class="btn btn-success pull-right">
+      }
+      </div>
+     </div>
+    </div>
+  </body>
+</html>

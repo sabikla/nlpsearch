@@ -1,0 +1,13 @@
+@(header : Html,messageList :List[Map[String,Any]])
+@header
+     <div class="col col-sm-8 col-sm-offset-2">
+      <div class="list-group">
+        @for(message <- messageList){
+          <span class="list-group-item">@message.get("messages.message")</span>
+        }
+      </div>
+      <a href="@routes.UserArea.dashboard" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+     </div>
+    </div>
+  </body>
+</html>

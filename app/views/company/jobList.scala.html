@@ -1,0 +1,23 @@
+@(header : Html, jobList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <table class="table table-hover">
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+        @for(job <- jobList){
+          <tr>
+            <td>@job.get("jobtable.post")</td> 
+            <td>@job.get("jobtable.company")</td>
+            <td>@job.get("jobtable.description")</td>
+            <td><a href="#" class="btn btn-danger">Delete</a> &nbsp;<a href="@routes.CompanyArea.jobViewInDetail(GeneralFunctions.getMD5Hash(job.get("jobtable.jobid").get.toString()))" class="btn btn-success">View in detail</a></td>
+          </tr>
+        }        
+      </table>
+     </div>
+    </div>
+  </body>
+</html>

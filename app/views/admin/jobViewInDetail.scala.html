@@ -1,0 +1,17 @@
+@(header : Html, jobData : Map[String,Any], jobLocation : String, jobSkill : String)
+@header
+     <div class="col col-sm-8 col-sm-offset-2">
+      <div class="list-group">
+        <span class="list-group-item">Job title : @GeneralFunctions.someExtractor(jobData.get("jobtable.post").get).capitalize</span>
+        <span class="list-group-item">Company : @GeneralFunctions.someExtractor(jobData.get("jobtable.company").get).capitalize</span>
+        <span class="list-group-item">Description : @jobData.get("jobtable.description")</span>
+        <span class="list-group-item">Experience : @jobData.get("jobtable.experience")</span>
+        <span class="list-group-item">Location : @jobLocation</span>
+        <span class="list-group-item">Skills : @jobSkill</span>
+        <span class="list-group-item">Salary : @jobData.get("jobtable.salary")</span>
+      </div>
+      <a href="@routes.AdminArea.jobList" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+     </div>
+    </div>
+  </body>
+</html>

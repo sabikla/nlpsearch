@@ -1,0 +1,27 @@
+@(header : Html, companyList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <div class="col col-sm-6">
+      @helper.form(action = routes.AdminArea.saveNewCompany){
+        <div class="input-group">
+          <input class="form-control" type="text" name="name" placeholder="Company Name" required/>
+        </div><br>
+        <div class="input-group">
+          <textarea class="form-control" type="text" name="address" placeholder="Company Address" required></textarea>
+        </div><br>
+        <div class="u-form-group">
+          <button class="btn btn-success">Create Compnay </button>
+        </div>
+      }
+      </div>
+      <div class="col col-sm-6">
+        <div class="list-group">
+          @for(company <- companyList){
+            <span class="list-group-item"><a href="#" class="btn btn-xs btn-danger">X</a> @company.get("company.companyname")</span>
+          }
+        </div>
+      </div>
+     </div>
+    </div>
+  </body>
+</html>

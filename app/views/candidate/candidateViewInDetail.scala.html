@@ -1,0 +1,20 @@
+@(header : Html, candidateData : Map[String,Any], resumeAddress : String,loadedFor : String)
+@header
+     <div class="col col-sm-8 col-sm-offset-2">
+      <div class="list-group">
+        <span class="list-group-item">Name : @GeneralFunctions.someExtractor(candidateData.get("candidate.name").get).capitalize</span>
+        <span class="list-group-item">Email : @candidateData.get("candidate.email")</span>
+        <span class="list-group-item">Mobile : @candidateData.get("candidate.mobile")</span>
+        <span class="list-group-item">Location : @candidateData.get("candidate.location")</span>
+        <span class="list-group-item">Experience : @candidateData.get("candidate.experience")</span>
+        
+        <span class="list-group-item">Resume : <a href="@routes.Assets.versioned(resumeAddress)" class="btn btn-warning"><span class="glyphicon glyphicon-download"></span> Download</a></span>
+      </div>
+      @if(loadedFor=="Company"){
+      <a href="@routes.CompanyArea.applicationList" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+      }
+      
+     </div>
+    </div>
+  </body>
+</html>

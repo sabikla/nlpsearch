@@ -1,0 +1,34 @@
+@(title : String)(implicit request: RequestHeader)
+<html>
+	<head>
+		<title> @title | NLP Job Search</title>
+		
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/css/bootstrap.css")">
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+	</head>
+	<body>
+	
+		<div class="nav navbar-default navbar-static-top">
+			<div class="container-fluid">
+				<img src="@routes.Assets.versioned("images/logo.jpg")">
+				<ul class="nav navbar-nav navbar-right">					
+					<li class="active"><a href="@routes.Application.index">Home</a></li>
+					<li><a href="@routes.Application.searchResult">Search</a></li>
+					<li><a href="@routes.Application.login">Login</a></li>
+					<li><a href="@routes.Application.feedback">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="outer">
+			<br>
+		  @if(request.flash.get("error").getOrElse("")!=""){
+		    <div class="alert alert-danger">              
+		      @request.flash.get("error").getOrElse("")
+		    </div>
+		  }
+		  @if(request.flash.get("success").getOrElse("")!=""){
+		    <div class="alert alert-success">              
+		      @request.flash.get("success").getOrElse("")
+		    </div>
+		  }

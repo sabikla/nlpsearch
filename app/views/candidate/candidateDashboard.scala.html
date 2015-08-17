@@ -1,0 +1,10 @@
+@(header : Html, applicationStatus : Int)
+@header
+		<div style="margin:auto; width:1000px;">
+			@if(applicationStatus==1){
+				<a href="@routes.UserArea.confirmJobApplication" class="btn btn-success">Confirm job application</a>
+				<a href="@routes.UserArea.declaneJobApplication" class="btn btn-danger">No, I don't want to apply for this job</a>
+			}
+		</div>
+	</body>
+</html>

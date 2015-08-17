@@ -1,0 +1,23 @@
+@(header : Html, feedbackList : List[Map[String,Any]])
+@header
+     <div class="col col-sm-12">
+      <table class="table table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Subject</th>
+          <th>Action</th>
+        </tr>
+        @for(feedback <- feedbackList){
+          <tr>
+            <td>@feedback.get("feedback.name")</td> 
+            <td>@feedback.get("feedback.mobile")</td>
+            <td>@feedback.get("feedback.subject")</td>
+            <td><a href="#" class="btn btn-danger">Delete</a> &nbsp;<a href="@routes.AdminArea.feedbackInDetail(GeneralFunctions.getMD5Hash(feedback.get("feedback.feedbackid").get.toString()))" class="btn btn-success">View in detail</a></td>
+          </tr>
+        }        
+      </table>
+     </div>
+    </div>
+  </body>
+</html>

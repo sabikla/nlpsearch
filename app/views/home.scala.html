@@ -1,0 +1,62 @@
+@(header : Html, latestJobs : List[Map[String,Any]])
+@header
+		<div style="margin:auto; width:1000px;">
+			<br>
+			 <div class="col-lg-8" style="margin:auto;"><!-- 
+			 	<form action="@routes.Application.searchResult" method="POST"> -->
+	 			<form action="@routes.Test.testSearch" method="POST">
+				    <div class="input-group">
+				      <input type="text" name="searchQuery" class="form-control" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button class="btn btn-success" type="submit">Go!</button>
+				      </span>
+				    </div><!-- /input-group -->
+			    </form>
+			 </div>
+			 <br><br>
+			 <div class="col col-sm-8" style="overflow:hidden;">
+			 	<img src="@routes.Assets.versioned("images/asso_banner.jpg")">
+			 </div>
+			 <div class="col col-sm-4">			 	
+				 <div class="panel panel-success">
+				 	<div class="panel-heading">Latest Job Updates</div>
+				 	<div class="panel-body">
+				 		@for(job <- latestJobs){
+				 			<div class="success headWithSide">
+				 				@GeneralFunctions.someExtractor(job.get("jobtable.post").get).capitalize in 
+				 				@job.get("jobtable.company")</div> 	
+				 		}	
+				 	</div>
+				 </div>
+			 </div>
+			 <br><br>
+			<div class="col col-sm-12"> 
+				<div class="col col-sm-4 text-center"><!-- 
+					<a href="@routes.Application.candidateRegistration">
+						<img src="@routes.Assets.versioned("images/candidate_registration.jpg")">
+					</a> -->
+
+					<br>		
+					<a href="@routes.Application.candidateRegistration" class="btn btn-success">
+						<span class="glyphicon glyphicon-user"></span>
+						Candidate Registration
+					</a>
+				</div>
+				<div class="col col-sm-4 text-center">			
+					<br>		
+					<a href="@routes.Application.companyRegistration" class="btn btn-success">
+						<span class="glyphicon glyphicon-briefcase"></span>
+						Company Registration
+					</a>
+				</div>
+				<div class="col col-sm-4 text-center">
+					<br>		
+					<a href="@routes.Application.login" class="btn btn-success col-offset-4">
+						<span class="glyphicon glyphicon-log-in"></span>
+						Login
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

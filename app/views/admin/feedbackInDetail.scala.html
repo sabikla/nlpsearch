@@ -1,0 +1,15 @@
+@(header : Html, feedback : Map[String,Any])
+@header
+     <div class="col col-sm-8 col-sm-offset-2">
+      <div class="list-group">
+        <span class="list-group-item">Name : @feedback.get("feedback.name")</span>
+        <span class="list-group-item">Email : @feedback.get("feedback.email")</span>
+        <span class="list-group-item">Mobile : @feedback.get("feedback.mobile")</span>
+        <span class="list-group-item">Subject : @feedback.get("feedback.subject")</span>
+        <span class="list-group-item">Message : @feedback.get("feedback.message")</span>
+      </div>
+      <a href="@routes.AdminArea.feedbackList" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+     </div>
+    </div>
+  </body>
+</html>

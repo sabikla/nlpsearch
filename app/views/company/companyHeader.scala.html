@@ -1,0 +1,61 @@
+@(title : String, pageId : Int)(implicit request: RequestHeader)
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>@title</title>
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/css/bootstrap.css")">
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+      <script src="@routes.Assets.versioned("javascripts/jquery-2.1.1.min.js")" type="text/javascript"></script>
+      <script src="@routes.Assets.versioned("bootstrap/js/bootstrap.js")" type="text/javascript"></script>
+      
+      </style>
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-static-top">        
+        	<div class="container-fluid">
+          <img src="@routes.Assets.versioned("images/logo.jpg")">
+        	<ul class="nav navbar-nav navbar-right">
+        		<li @if(pageId==1){ class="active" }><a href="@routes.CompanyArea.dashboard">Home</a></li>
+        		<li class="dropdown @if(pageId==2){ active }">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jobs <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="@routes.CompanyArea.newJob">New job</a></li>
+                    <li><a href="@routes.CompanyArea.jobList">Job List</a></li>
+                    <li><a href="@routes.CompanyArea.applicationList">Application List</a></li>
+                    <li><a href="@routes.CompanyArea.sendMessageToApplicants">Send Message</a></li>
+                    <li class="dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Report Generator Tool</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Generate</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              </li>
+        		<li><a href="@routes.Login.logout">Logout </a></li>
+        	</ul>
+        	</div>
+        </div>
+        <div class="outer">
+          <br>
+          @if(request.flash.get("error").getOrElse("")!=""){
+            <div class="alert alert-danger">              
+              @request.flash.get("error").getOrElse("")
+            </div>
+          }
+          @if(request.flash.get("success").getOrElse("")!=""){
+            <div class="alert alert-success">              
+              @request.flash.get("success").getOrElse("")
+            </div>
+          }
+        <script type="text/javascript">
+(function($){
+  $(document).ready(function(){
+    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+      event.preventDefault(); 
+      event.stopPropagation(); 
+      $(this).parent().siblings().removeClass('open');
+      $(this).parent().toggleClass('open');
+    });
+  });
+})(jQuery);
+        </script>
